@@ -9,41 +9,41 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class chanceTest {
-    private chance testchance;
+    private chance testChance;
 
     @Before
     public void setUp() throws Exception {
-        testchance = new chance(0.4d);
+        testChance = new chance(0.4d);
     }
 
     @Test
     public void should_get_and_chance() {
         //given
-        chance anotherchance = new chance(0.3d);
+        chance anotherChance = new chance(0.3d);
         //then
-        assertThat(testchance.and(anotherchance)).isEqualToComparingFieldByField(new chance(0.12d));
+        assertThat(testChance.and(anotherChance)).isEqualToComparingFieldByField(new chance(0.12d));
     }
 
     @Test
     public void should_get_or_chance() {
         //given
-        chance anotherchance = new chance(0.5d);
+        chance anotherChance = new chance(0.5d);
         //then
-        assertThat(testchance.or(anotherchance)).isEqualToComparingFieldByField(new chance(0.9d));
+        assertThat(testChance.or(anotherChance)).isEqualToComparingFieldByField(new chance(0.9d));
     }
 
     @Test
     public void should_get_or_chance_if_result_chance_overflow() {
         //given
-        chance anotherchance = new chance(0.8d);
+        chance anotherChance = new chance(0.8d);
         //then
-        assertThat(testchance.or(anotherchance)).isEqualToComparingFieldByField(new chance(1.0d));
+        assertThat(testChance.or(anotherChance)).isEqualToComparingFieldByField(new chance(1.0d));
     }
 
     @Test
     public void should_get_not_chance() {
         //then
-        assertThat(testchance.not()).isEqualToComparingFieldByField(new chance(0.6d));
+        assertThat(testChance.not()).isEqualToComparingFieldByField(new chance(0.6d));
 
     }
 }
